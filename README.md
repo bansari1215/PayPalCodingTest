@@ -2,7 +2,7 @@
 
 Submitted by: **Bansari Patel**
 
-## Techonologies: Spring Boot, Spring MVC, Spring JPA, H2 Database, Maven, jUnit, Mockito, Swagger, Git
+## Techonologies: Spring Boot, Spring MVC, Spring JPA, Java 8, H2 Database, Maven, jUnit, Mockito, Swagger, Git
 
 
 ## A spring-based application which provides REST APIs for ##
