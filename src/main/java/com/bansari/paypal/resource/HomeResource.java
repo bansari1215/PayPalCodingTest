@@ -88,7 +88,6 @@ public class HomeResource {
 			return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
 		}
 
-		transaction = getTransactionByTransactionType(transactionType);
 		year = year == null ? "%" : year;
 		month = month == null ? "%" : month;
 		day = day == null ? "%" : day;
