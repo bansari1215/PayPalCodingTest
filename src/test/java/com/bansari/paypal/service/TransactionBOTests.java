@@ -12,8 +12,10 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.bansari.paypal.dao.TransactionDAO;
-import com.bansari.paypal.model.Transaction;
+import com.bansari.dao.TransactionDAO;
+import com.bansari.model.Transaction;
+import com.bansari.service.TransactionBO;
+import com.bansari.service.TransactionBOImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class TransactionBOTests {

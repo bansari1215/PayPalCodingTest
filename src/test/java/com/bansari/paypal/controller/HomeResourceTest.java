@@ -17,12 +17,12 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
-import com.bansari.paypal.dto.TransactionWithTypeAndDateDTO;
-import com.bansari.paypal.dto.UserTransactionDTO;
-import com.bansari.paypal.model.Transaction;
-import com.bansari.paypal.resource.HomeResource;
-import com.bansari.paypal.service.TransactionBO;
-import com.bansari.paypal.service.UserTransactionBO;
+import com.bansari.dto.TransactionWithTypeAndDateDTO;
+import com.bansari.dto.UserTransactionDTO;
+import com.bansari.model.Transaction;
+import com.bansari.resource.HomeResource;
+import com.bansari.service.TransactionBO;
+import com.bansari.service.UserTransactionBO;
 
 @ExtendWith(MockitoExtension.class)
 public class HomeResourceTest {
