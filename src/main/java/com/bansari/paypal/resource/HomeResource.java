@@ -69,18 +69,26 @@ public class HomeResource {
 
 		Transaction transaction = null;
 
-		if (validationResult.containsKey(false)) {
-			
-			if (validationResult.get("Transaction Type") == null && transactionType != null) {
-				transaction = getTransactionByTransactionType(transactionType);
-				if (transaction != null && transaction.getTransactionId() == null) {
+		if(transactionType != null) {
+			transaction = getTransactionByTransactionType(transactionType);
+			if (transaction != null && transaction.getTransactionId() == null) {
+				if(validationResult.containsKey(false)) {
 					validationResult.get(false).put("Transaction Type", "Please enter valid Transaction type");
+				}else {
+					validationResult.remove(true);
+					Map<String, String> validations = new HashMap<>();
+					validations.put("Transaction Type", "Please enter valid Transaction type");
+					validationResult.put(false, validations);
 				}
 			}
+		}
+		
+		if (validationResult.containsKey(false)) {
 			result.put("UserTransaction", validationResult.get(false));
 			return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
 		}
 
+		transaction = getTransactionByTransactionType(transactionType);
 		year = year == null ? "%" : year;
 		month = month == null ? "%" : month;
 		day = day == null ? "%" : day;

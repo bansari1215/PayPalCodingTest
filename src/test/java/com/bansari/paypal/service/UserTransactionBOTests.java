@@ -20,7 +20,6 @@ import com.bansari.paypal.dto.TransactionWithTypeAndDateDTO;
 import com.bansari.paypal.dto.UserTransactionDTO;
 import com.bansari.paypal.model.Transaction;
 import com.bansari.paypal.model.User;
-import com.bansari.paypal.model.UserTransaction;
 
 @ExtendWith(MockitoExtension.class)
 public class UserTransactionBOTests {
