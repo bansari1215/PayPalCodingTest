@@ -16,6 +16,8 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.bansari.paypal.dao.UserTransactionDAO;
+import com.bansari.paypal.dto.TransactionWithTypeAndDateDTO;
+import com.bansari.paypal.dto.UserTransactionDTO;
 import com.bansari.paypal.model.Transaction;
 import com.bansari.paypal.model.User;
 import com.bansari.paypal.model.UserTransaction;
@@ -37,35 +39,40 @@ public class UserTransactionBOTests {
 	@Test
 	public void getTransactionByTransactionType() {
 
-		List<UserTransaction> mockList = new ArrayList<>();
+		List<UserTransactionDTO> mockList = new ArrayList<>();
 		when(userTransactionDAO.getUserTransactionByDate(Mockito.any())).thenReturn(mockList);
 
-		List<UserTransaction> ActualList = userTransactionBO.getUserTransDetailsByDate("2020-10-21");
+		List<UserTransactionDTO> ActualList = userTransactionBO.getUserTransDetailsByDate("2020-10-21");
 		assertEquals(mockList, ActualList);
 	}
 
 	@Test
-	public void getUserTransactionByDateUserId() {
+	public void getUserTransDetailsByDateTime_withAllInputData() {
 
-		List<Transaction> mockList = new ArrayList<>();
-		User user = new User();
-		when(userTransactionDAO.getUserTransactionByDateUserId(Mockito.any(), Mockito.any())).thenReturn(mockList);
-
-		List<Transaction> ActualList = userTransactionBO.getUserTransactionByDateUserId("2020-10-21", user);
-		assertEquals(mockList, ActualList);
-	}
-
-	@Test
-	public void getUserTransactionByTransactionTypeUserId() {
-
-		List<UserTransaction> mockList = new ArrayList<>();
+		List<TransactionWithTypeAndDateDTO> mockList = new ArrayList<>();
 		User user = new User();
 		Transaction transaction = new Transaction();
-		when(userTransactionDAO.getUserTransactionByTransactionTypeUserId(Mockito.any(), Mockito.any()))
-				.thenReturn(mockList);
+		when(userTransactionDAO.getUserTransDetailsByUserAndDateTimeAndTransType(Mockito.any(), Mockito.any(),
+				Mockito.anyString(), Mockito.anyString(), Mockito.anyString(), Mockito.anyString()))
+						.thenReturn(mockList);
 
-		List<UserTransaction> ActualList = userTransactionBO.getUserTransactionByTransactionTypeUserId(transaction,
-				user);
+		List<TransactionWithTypeAndDateDTO> ActualList = userTransactionBO
+				.getUserTransDetailsByUserAndDateTimeAndTransType(user, transaction, "2020", "05", "12", "11");
+		assertEquals(mockList, ActualList);
+	}
+
+	@Test
+	public void getUserTransDetailsByDateTime_withOnlyUserData_defaultDateRelatedInputData() {
+
+		List<TransactionWithTypeAndDateDTO> mockList = new ArrayList<>();
+		User user = new User();
+		Transaction transaction = new Transaction();
+		when(userTransactionDAO.getUserTransDetailsByUserAndDateTimeAndTransType(Mockito.any(), Mockito.any(),
+				Mockito.anyString(), Mockito.anyString(), Mockito.anyString(), Mockito.anyString()))
+						.thenReturn(mockList);
+
+		List<TransactionWithTypeAndDateDTO> ActualList = userTransactionBO
+				.getUserTransDetailsByUserAndDateTimeAndTransType(user, transaction, "%", "%", "%", "%");
 		assertEquals(mockList, ActualList);
 	}
 }

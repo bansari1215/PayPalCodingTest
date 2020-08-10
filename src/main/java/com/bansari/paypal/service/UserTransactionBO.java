@@ -4,17 +4,16 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.bansari.paypal.dto.TransactionDTO;
+import com.bansari.paypal.dto.TransactionWithTypeAndDateDTO;
+import com.bansari.paypal.dto.UserTransactionDTO;
 import com.bansari.paypal.model.Transaction;
 import com.bansari.paypal.model.User;
-import com.bansari.paypal.model.UserTransaction;
 
 @Service
 public interface UserTransactionBO {
 
-	public List<UserTransaction> getUserTransDetailsByDate(String transactionDate);
-	
-	public List<Transaction> getUserTransactionByDateUserId(String transaction, User user);
-	
-	public List<UserTransaction> getUserTransactionByTransactionTypeUserId(Transaction transaction, User user);
+	public List<UserTransactionDTO> getUserTransDetailsByDate(String transactionDate);
+
+	public List<TransactionWithTypeAndDateDTO> getUserTransDetailsByUserAndDateTimeAndTransType(User user, Transaction transaction,
+			String year, String month, String day, String hour);
 }

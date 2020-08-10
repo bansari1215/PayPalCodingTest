@@ -21,6 +21,4 @@ public class PayPalCodingTestApplication {
 		return new ModelMapper();
 	}
 
-	
-	
 }

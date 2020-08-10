@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bansari.paypal.dao.UserTransactionDAO;
-import com.bansari.paypal.dto.TransactionDTO;
+import com.bansari.paypal.dto.TransactionWithTypeAndDateDTO;
+import com.bansari.paypal.dto.UserTransactionDTO;
 import com.bansari.paypal.model.Transaction;
 import com.bansari.paypal.model.User;
-import com.bansari.paypal.model.UserTransaction;
 
 import lombok.NoArgsConstructor;
+
 @NoArgsConstructor
 @Service
 public class UserTransactionBOImpl implements UserTransactionBO {
@@ -20,22 +21,16 @@ public class UserTransactionBOImpl implements UserTransactionBO {
 	private UserTransactionDAO userTransactionDAO;
 
 	@Override
-	public List<UserTransaction> getUserTransDetailsByDate(String transactionDate) {
+	public List<UserTransactionDTO> getUserTransDetailsByDate(String transactionDate) {
 
-		List<UserTransaction> userTransactionDetailsList = userTransactionDAO.getUserTransactionByDate(transactionDate);
+		List<UserTransactionDTO> listUserTrans = userTransactionDAO.getUserTransactionByDate(transactionDate);
 
-		return userTransactionDetailsList;
+		return listUserTrans;
 	}
 
 	@Override
-	public List<Transaction> getUserTransactionByDateUserId(String transactionDate, User user) {
-		List<Transaction> list = userTransactionDAO.getUserTransactionByDateUserId(transactionDate, user);
-		return list;
-	}
-
-	@Override
-	public List<UserTransaction> getUserTransactionByTransactionTypeUserId(Transaction transactionType, User user) {
-		List<UserTransaction> list = userTransactionDAO.getUserTransactionByTransactionTypeUserId(transactionType, user);
-		return list;
+	public List<TransactionWithTypeAndDateDTO> getUserTransDetailsByUserAndDateTimeAndTransType(User user, Transaction transaction,
+			String year, String month, String day, String hour) {
+		return userTransactionDAO.getUserTransDetailsByUserAndDateTimeAndTransType(user, transaction, year, month, day, hour);
 	}
 }

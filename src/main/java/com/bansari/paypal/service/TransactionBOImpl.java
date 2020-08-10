@@ -11,7 +11,7 @@ public class TransactionBOImpl implements TransactionBO {
 
 	@Autowired
 	private TransactionDAO transactionDAO;
-	
+
 	@Override
 	public Transaction getTransactionByTransactionType(String transactionType) {
 

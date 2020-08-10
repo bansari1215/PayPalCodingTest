@@ -6,6 +6,6 @@ import com.bansari.paypal.model.Transaction;
 
 @Component
 public interface TransactionDAO {
-	
+
 	public Transaction getTransactionByTransactionType(String transactionType);
 }

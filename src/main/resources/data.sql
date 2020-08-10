@@ -14,8 +14,8 @@ insert into Transaction(transaction_type) values('Invoice');
 insert into Transaction(transaction_type) values('Billing');
 insert into Transaction(transaction_type) values('Subscription');
 
-insert into user_transaction(user_id, transaction_id, transaction_date_time) values('bansari@gmail.com', 1,'2020-05-12 10:02:22');
-insert into user_transaction(user_id, transaction_id, transaction_date_time) values('bansari@gmail.com', 1,'2020-05-12 05:11:56');
+insert into user_transaction(user_id, transaction_id, transaction_date_time) values('bansari@gmail.com', 1,'2020-04-12 10:02:22');
+insert into user_transaction(user_id, transaction_id, transaction_date_time) values('bansari@gmail.com', 1,'2020-05-12 11:11:56');
 insert into user_transaction(user_id, transaction_id, transaction_date_time) values('bansari@gmail.com', 3,'2020-05-12 11:32:43');
 insert into user_transaction(user_id, transaction_id, transaction_date_time) values('mike@gmail.com', 1,'2020-02-22 05:11:56');
 insert into user_transaction(user_id, transaction_id, transaction_date_time) values('mike@gmail.com', 1,'2020-01-16 03:17:11');
