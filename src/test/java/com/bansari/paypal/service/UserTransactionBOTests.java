@@ -15,11 +15,13 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.bansari.paypal.dao.UserTransactionDAO;
-import com.bansari.paypal.dto.TransactionWithTypeAndDateDTO;
-import com.bansari.paypal.dto.UserTransactionDTO;
-import com.bansari.paypal.model.Transaction;
-import com.bansari.paypal.model.User;
+import com.bansari.dao.UserTransactionDAO;
+import com.bansari.dto.TransactionWithTypeAndDateDTO;
+import com.bansari.dto.UserTransactionDTO;
+import com.bansari.model.Transaction;
+import com.bansari.model.User;
+import com.bansari.service.UserTransactionBO;
+import com.bansari.service.UserTransactionBOImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class UserTransactionBOTests {
