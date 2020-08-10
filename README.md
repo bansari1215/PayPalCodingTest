@@ -22,7 +22,7 @@ Submitted by: **Bansari Patel**
 - [x] Write unit tests for each service
 - [x] H2 Database configuration for database simulation
 - [x] MySQL database configuration included in the project to display database connectivity
-- [x] Swagger for documentation : http://localhost:8083/swagger-ui.html
+- [x] Swagger for documentation : http://localhost:8083/swagger-ui/index.html
 
 
 I really enjoyed this test. I am going to keep updating this project and add additional functionalities. 
